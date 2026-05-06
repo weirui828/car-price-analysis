@@ -30,9 +30,19 @@ After cleaning and exploring the dataset, several regression models (Linear Regr
 
 ## Next Steps
 
-- Incorporate geographic data (region/state) to account for local market variation.
-- Explore time-series trends to understand how prices shift seasonally.
-- Build a simple pricing tool that dealers can use to estimate fair market value for a given vehicle configuration.
+While predicting the raw market price of a vehicle is a useful baseline, dealerships already have access to real-time market pricing tools, such as Kelley Blue Book. To provide true competitive advantage, future iterations of this analysis should shift focus from **pricing** to **profitability**.
+
+Recommended next steps include:
+
+1. **Shift the Target Variable to Profit Margin**  
+   By incorporating wholesale acquisition costs and estimated reconditioning costs into the dataset, we can train a model to predict the expected **profit space** of a vehicle, allowing buyers to identify undervalued assets at auction.
+
+2. **Predict "Days on Lot" (Turn Rate)**  
+   A high-margin car that takes 120 days to sell is often less profitable than a lower-margin car that sells in 5 days due to floorplan financing costs. A secondary model predicting inventory turn rate based on local demand and vehicle specs would optimize capital allocation.
+
+3. **Incorporate Real-Time Depreciation Curves**  
+   Since car age is the #1 driver of price, a time-series analysis predicting *how much value a specific car will lose in the next 60 days* would help dealerships aggressively price and move aging inventory before it crosses the next depreciation cliff.
+
 
 ## Repository Structure
 
@@ -41,8 +51,6 @@ car-price-analysis/
 ├── data/
 │   └── vehicles.csv        # Raw dataset (~426K used car listings)
 ├── images/
-│   ├── crisp.png            # CRISP-DM framework diagram
-│   └── kurt.jpeg            # Header image
 ├── analyzer.ipynb           # Full analysis notebook
 └── README.md
 ```
